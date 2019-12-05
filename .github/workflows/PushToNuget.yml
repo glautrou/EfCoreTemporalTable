@@ -17,7 +17,7 @@ jobs:
     - name: Build
       run: dotnet build src/EfCoreTemporalTable.sln --configuration Release
     - name: Unit Tests
-      run: dotnet test
+      run: dotnet test src/EfCoreTemporalTable.sln
     - name: Build NuGet Package
       run: dotnet pack ./src/EfCoreTemporalTable.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
