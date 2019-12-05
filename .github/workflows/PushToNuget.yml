@@ -15,7 +15,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build
-      run: dotnet build --configuration Release
+      run: dotnet build src/EfCoreTemporalTable.sln --configuration Release
     - name: Unit Tests
       run: dotnet test
     - name: Build NuGet Package
