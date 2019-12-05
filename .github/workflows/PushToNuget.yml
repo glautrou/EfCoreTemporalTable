@@ -9,23 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.0.100
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-      - name: Test with dotnet
-        run: dotnet test
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Pack NuGet package
-        run: dotnet pack --configuration Release
-      - name: Push package to NuGet
-        run: dotnet nuget push **/*.nupkg
-              --api-key ${{ secrets.NUGET_DEPLOY_KEY }}
-              --source https://api.nuget.org/v3/index.json
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Unit Tests
+      run: dotnet test
+    - name: Build NuGet Package
+      run: dotnet pack ./EfCoreTemporalTable.csproj --configuration Release -o NuGetPackages
+    - name: Deploy NuGet Package
+      run: dotnet nuget push ./NuGetPackages/EfCoreTemporalTable.1.0.0.nupkg -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json
