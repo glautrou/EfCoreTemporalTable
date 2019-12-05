@@ -12,6 +12,12 @@
   <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageProjectUrl>https://github.com/glautrou/EfCoreTemporalTable</PackageProjectUrl>
+    <PackageIconUrl>https://cdn4.iconfinder.com/data/icons/miu/24/circle-backup-time-history-recent-time-machine-glyph-512.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/glautrou/EfCoreTemporalTable</RepositoryUrl>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
