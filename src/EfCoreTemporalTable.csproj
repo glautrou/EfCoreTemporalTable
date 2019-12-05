@@ -13,10 +13,10 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageProjectUrl>https://github.com/glautrou/EfCoreTemporalTable</PackageProjectUrl>
-    <PackageIconUrl>https://cdn4.iconfinder.com/data/icons/miu/24/circle-backup-time-history-recent-time-machine-glyph-512.png</PackageIconUrl>
+    <PackageIconUrl>https://remixjobs-cache.s3-eu-west-1.amazonaws.com/1600x1200_thumbnail/1562574147-2a3818c7ef8893c42a11319a3501837b.jpeg</PackageIconUrl>
     <RepositoryUrl>https://github.com/glautrou/EfCoreTemporalTable</RepositoryUrl>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
     <Version>1.0.1</Version>
   </PropertyGroup>
 
