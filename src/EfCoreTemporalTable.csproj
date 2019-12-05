@@ -17,7 +17,7 @@
     <RepositoryUrl>https://github.com/glautrou/EfCoreTemporalTable</RepositoryUrl>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
     <FileVersion>1.0.2.0</FileVersion>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
