@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Gilles Lautrou</Authors>
+    <Company>Webnet</Company>
+    <Description>Easily perform temporal queries on your favourite database by using Entity Framework Core</Description>
+    <PackageTags>temporal,sql,efcore</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
