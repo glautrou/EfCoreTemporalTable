@@ -2,11 +2,16 @@ Easily perform **temporal queries** on your favourite database by using **Entity
 
 ![latest version](https://img.shields.io/nuget/v/EfCoreTemporalTable)
 
-# What is does?
+# Overview
 There is no way querying temporal tables with Entity Framework Core except writing boring SQL code and executing raw queries.
 This package allows you to easily query your historic data and mix it with Entity Framework Core in an intuitive way.
 
 All temporal criterias are supported and it works with all databases supported by EF Core and all operating systems supported by .NET Core (Windows/MacOS/Linux).
+
+# Dependencies
+- NETStandard 2.0
+- Microsoft.EntityFrameworkCore >= 3.1.0
+- Microsoft.EntityFrameworkCore.Relational >= 3.1.0
 
 # Installation
 There are two ways to install the package:
