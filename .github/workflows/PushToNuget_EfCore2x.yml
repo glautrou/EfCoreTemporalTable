@@ -1,0 +1,24 @@
+name: NuGet Package Deploy - EF Core 2.x support
+
+on:
+  push:
+    branches:
+      - gilles/ef-core-2-support
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Build
+      run: dotnet build src/EfCoreTemporalTable.sln --configuration Release
+    - name: Unit Tests
+      run: dotnet test src/EfCoreTemporalTable.sln
+    - name: Build NuGet Package
+      run: dotnet pack ./src/EfCoreTemporalTable.csproj --configuration Release -o NuGetPackages
+    - name: Deploy NuGet Package
+      run: dotnet nuget push ./src/NuGetPackages/EfCoreTemporalTable.1.0.0.nupkg -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json
