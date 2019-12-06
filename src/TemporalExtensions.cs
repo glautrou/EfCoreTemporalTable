@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -26,7 +27,7 @@ namespace EfCoreTemporalTable
                 .GetTableName<T>();
             var selectSql = $"SELECT * FROM {table}";
             var sql = FormattableStringFactory.Create(selectSql + " FOR SYSTEM_TIME " + temporalCriteria, arguments);
-            return dbSet.FromSqlInterpolated(sql);
+            return dbSet.FromSql(sql);
         }
 
         /// <summary>
@@ -119,8 +120,10 @@ namespace EfCoreTemporalTable
         private static string GetTableName<T>(this ICurrentDbContext dbContext) where T : class
         {
             var entityType = dbContext.Context.Model.FindEntityType(typeof(T));
-            var schema = entityType.GetSchema() ?? "dbo";
-            var tableName = entityType.GetTableName();
+            var mapping = entityType.Relational();
+            var schema = mapping.Schema;
+            var tableName = mapping.TableName;
+
             return $"[{schema}].[{tableName}]";
         }
     }

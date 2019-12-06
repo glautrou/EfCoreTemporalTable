@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Gilles Lautrou</Authors>
     <Company>Webnet</Company>
-    <Description>Easily perform temporal queries on your favourite database by using Entity Framework Core</Description>
+    <Description>Easily perform temporal queries on your favourite database by using Entity Framework Core 2.x</Description>
     <PackageTags>temporal,sql,efcore</PackageTags>
   </PropertyGroup>
 
@@ -15,14 +15,15 @@
     <PackageProjectUrl>https://github.com/glautrou/EfCoreTemporalTable</PackageProjectUrl>
     <PackageIconUrl>https://remixjobs-cache.s3-eu-west-1.amazonaws.com/1600x1200_thumbnail/1562574147-2a3818c7ef8893c42a11319a3501837b.jpeg</PackageIconUrl>
     <RepositoryUrl>https://github.com/glautrou/EfCoreTemporalTable</RepositoryUrl>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
+    <PackageId>EfCoreTemporalTable.EfCore2</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.0.0" />
   </ItemGroup>
 
 </Project>
