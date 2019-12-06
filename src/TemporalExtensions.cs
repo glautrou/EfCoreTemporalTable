@@ -11,23 +11,7 @@ namespace EfCoreTemporalTable
     /// </summary>
     public static class TemporalExtensions
     {
-        /// <summary>
-        /// Get temporal data
-        /// </summary>
-        /// <typeparam name="T">Entity type</typeparam>
-        /// <param name="dbSet">Data set</param>
-        /// <param name="temporalCriteria">Temporal criteria of the SQL query</param>
-        /// <param name="arguments">Temporal SQL arguments</param>
-        /// <returns>Temporal data</returns>
-        private static IQueryable<T> AsTemporal<T>(this DbSet<T> dbSet, string temporalCriteria, params object[] arguments) where T : class
-        {
-            var table = dbSet
-                .GetService<ICurrentDbContext>()
-                .GetTableName<T>();
-            var selectSql = $"SELECT * FROM {table}";
-            var sql = FormattableStringFactory.Create(selectSql + " FOR SYSTEM_TIME " + temporalCriteria, arguments);
-            return dbSet.FromSqlInterpolated(sql);
-        }
+        #region Public
 
         /// <summary>
         /// Returns the union of rows that belong to the current and the history table.
@@ -110,6 +94,28 @@ namespace EfCoreTemporalTable
             return dbSet.AsTemporal("CONTAINED IN ({0}, {1})", startDate.ToUniversalTime(), endDate.ToUniversalTime());
         }
 
+        #endregion
+
+        #region Private
+
+        /// <summary>
+        /// Get temporal data
+        /// </summary>
+        /// <typeparam name="T">Entity type</typeparam>
+        /// <param name="dbSet">Data set</param>
+        /// <param name="temporalCriteria">Temporal criteria of the SQL query</param>
+        /// <param name="arguments">Temporal SQL arguments</param>
+        /// <returns>Temporal data</returns>
+        private static IQueryable<T> AsTemporal<T>(this DbSet<T> dbSet, string temporalCriteria, params object[] arguments) where T : class
+        {
+            var table = dbSet
+                .GetService<ICurrentDbContext>()
+                .GetTableName<T>();
+            var selectSql = $"SELECT * FROM {table}";
+            var sql = FormattableStringFactory.Create(selectSql + " FOR SYSTEM_TIME " + temporalCriteria, arguments);
+            return dbSet.FromSqlInterpolated(sql);
+        }
+
         /// <summary>
         /// Get the specified entity type SQL column full name
         /// </summary>
@@ -119,9 +125,28 @@ namespace EfCoreTemporalTable
         private static string GetTableName<T>(this ICurrentDbContext dbContext) where T : class
         {
             var entityType = dbContext.Context.Model.FindEntityType(typeof(T));
-            var schema = entityType.GetSchema() ?? "dbo";
-            var tableName = entityType.GetTableName();
-            return $"[{schema}].[{tableName}]";
+            var schema = entityType.GetSchema().GetSqlSafeName();
+            var table = entityType.GetTableName().GetSqlSafeName();
+
+            return string.IsNullOrEmpty(schema)
+                ? table
+                : string.Join(".", schema, table);
         }
+
+        /// <summary>
+        /// Get a safe SQL name for specified text.
+        /// For example User will returns [User]
+        /// </summary>
+        /// <param name="sqlName">SQL name</param>
+        /// <returns>Safe SQL name</returns>
+        private static string GetSqlSafeName(this string sqlName)
+        {
+            return string.IsNullOrEmpty(sqlName)
+                ? string.Empty
+                : $"[{sqlName}]";
+        }
+
+        #endregion
+
     }
 }
