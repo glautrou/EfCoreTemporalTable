@@ -1,9 +1,9 @@
-name: NuGet Package Deploy
+name: NuGet Package Deploy - EF Core 2.x support
 
 on:
   push:
     branches:
-      - master
+      - gilles/ef-core-2-support
 
 jobs:
   build:
@@ -21,4 +21,4 @@ jobs:
     - name: Build NuGet Package
       run: dotnet pack ./src/EfCoreTemporalTable.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
-      run: dotnet nuget push ./src/NuGetPackages/EfCoreTemporalTable.1.0.2.nupkg -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./src/NuGetPackages/EfCoreTemporalTable.1.0.0.nupkg -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json
