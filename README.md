@@ -1,6 +1,6 @@
 Easily perform **temporal queries** on your favourite database by using **Entity Framework Core 2.x**
 
-![latest version](https://img.shields.io/nuget/v/EfCoreTemporalTable)
+[![](https://img.shields.io/nuget/v/EfCoreTemporalTable)](https://www.nuget.org/packages/EfCoreTemporalTable.EfCore2/ "Latest version")
 
 # Overview
 There is no way querying temporal tables with Entity Framework Core except writing boring SQL code and executing raw queries.
@@ -15,8 +15,8 @@ All temporal criterias are supported and it works with all databases supported b
 
 # Installation
 There are two ways to install the package:
-- via Visual Studio : Right Click on project > Manage NuGet packages > Search for "EfCoreTemporalTable" > Install
-- via command line: `dotnet add package EfCoreTemporalTable`
+- via Visual Studio : Right Click on project > Manage NuGet packages > Search for "EfCoreTemporalTable.EfCore2" > Install
+- via command line: `dotnet add package EfCoreTemporalTable.EfCore2`
 
 # Usage
 You can use it with your existing EF Core DbContext/DbSet.
