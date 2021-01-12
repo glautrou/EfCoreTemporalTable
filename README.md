@@ -12,6 +12,7 @@ All temporal criterias are supported and it works with all databases supported b
 - NETStandard 2.0
 - Microsoft.EntityFrameworkCore >= 5.0.2
 - Microsoft.EntityFrameworkCore.Relational >= 5.0.2
+
 (EF Core [2.x](https://github.com/glautrou/EfCoreTemporalTable/tree/gilles/ef-core-2-support) or [3.x](https://github.com/glautrou/EfCoreTemporalTable/tree/gilles/ef-core-3-support) support)
 
 # Installation
