@@ -1,4 +1,4 @@
-Easily perform **temporal queries** on your favourite database by using **Entity Framework Core**
+Easily perform **temporal queries** on your favourite database by using **Entity Framework Core 3.x**
 
 ![latest version](https://img.shields.io/nuget/v/EfCoreTemporalTable)
 
