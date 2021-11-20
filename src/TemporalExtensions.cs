@@ -113,7 +113,7 @@ namespace EfCoreTemporalTable
                 .GetTableName<T>();
             var selectSql = $"SELECT * FROM {table}";
             var sql = FormattableStringFactory.Create(selectSql + " FOR SYSTEM_TIME " + temporalCriteria, arguments);
-            return dbSet.FromSqlInterpolated(sql);
+            return dbSet.FromSqlInterpolated(sql).AsNoTracking();
         }
 
         /// <summary>

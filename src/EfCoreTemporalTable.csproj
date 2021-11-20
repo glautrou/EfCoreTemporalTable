@@ -15,9 +15,9 @@
     <PackageProjectUrl>https://github.com/glautrou/EfCoreTemporalTable</PackageProjectUrl>
     <PackageIconUrl>https://remixjobs-cache.s3-eu-west-1.amazonaws.com/1600x1200_thumbnail/1562574147-2a3818c7ef8893c42a11319a3501837b.jpeg</PackageIconUrl>
     <RepositoryUrl>https://github.com/glautrou/EfCoreTemporalTable</RepositoryUrl>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
