@@ -21,4 +21,4 @@ jobs:
     - name: Build NuGet Package
       run: dotnet pack ./src/EfCoreTemporalTable.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
-      run: dotnet nuget push ./NuGetPackages/EfCoreTemporalTable.1.0.4.nupkg -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./NuGetPackages/EfCoreTemporalTable.1.0.5.nupkg -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json
