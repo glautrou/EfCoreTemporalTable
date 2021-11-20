@@ -2,6 +2,9 @@ Easily perform **temporal queries** on your favourite database by using **Entity
 
 ![latest version](https://img.shields.io/nuget/v/EfCoreTemporalTable)
 
+<b>:exclamation: IMPORTANT - EF Core 6 users :exclamation:</b>
+If your project is targeting EF Core 6+ you may not need this extension, please read [the Microsoft blog post announcement](https://devblogs.microsoft.com/dotnet/prime-your-flux-capacitor-sql-server-temporal-tables-in-ef-core-6-0/).
+
 # Overview
 There is no way querying temporal tables with Entity Framework Core except writing boring SQL code and executing raw queries.
 This package allows you to easily query your historic data and mix it with Entity Framework Core in an intuitive way.
